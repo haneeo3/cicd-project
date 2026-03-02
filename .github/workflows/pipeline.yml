@@ -1,0 +1,25 @@
+name: My First CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Make scripts executable
+        run: chmod +x app.sh test.sh
+
+      - name: Run tests
+        run: ./test.sh
+
+      - name: Deploy
+        run: |
+          echo "Tests passed! Deploying..."
+          ./app.sh
+          echo "Deployment complete!"
