@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Running tests..."
 
-OUTPUT=$(./app.sh)
+OUTPUT=$(.app.sh)
 
 if echo "$OUTPUT" | grep -q "My app is running"; then
     echo "✅ Test passed!"
